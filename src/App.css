@@ -1,5 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import '../src//styles/FillForm.css';
+@import '../src//styles/SearchBarStyles.css';
+@import '../src//styles/NoRecordFound.css';
 @import 'react-toastify/dist/ReactToastify.css';
 .App {
   text-align: center;

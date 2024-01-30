@@ -10,13 +10,15 @@ const useRegister = () => {
       const res = await httpPost("student/register", data);
       if (res.status === 200) {
         console.log('"message": "Registration Successful",');
+        toast.success((res?.message));
+        window.location.reload()
       }
       setLoading(false);
     } catch (error) {
         console.log(error);
       setLoading(false);
       //@ts-ignore
-      toast(error?.response?.data?.message);
+      toast.error((error?.response?.data?.message));
     }
   };
   return {

@@ -17,8 +17,15 @@ const FillForm: React.FC = () => {
   const [state, setState] = useState<string>("");
   const [localGovernment, setLocalGovernment] = useState<string>("");
   const [admissionMode, setAdmissionMode] = useState<string>("");
+  const [year, setYear] = useState<string>("");
   const [admissionType, setAdmissionType] = useState<string>("");
+  const startYear = 2000;
+  const endYear = 2024;
   const [status, setStatus] = useState<string>("");
+  const years = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, index) => startYear + index
+  );
   const onPressSubmit = () => {
     var data: IREGISTERUSER = {
       RegistrationNo: registrationNo,
@@ -30,6 +37,7 @@ const FillForm: React.FC = () => {
       AdmissionMode: admissionMode,
       AdmissionType: admissionType,
       Status: status,
+      Year: year,
     };
     registerStudentApi(data);
   };
@@ -99,7 +107,10 @@ const FillForm: React.FC = () => {
         <Col xs={12} md={6}>
           <Form.Group controlId="formGridState">
             <Form.Label>Local government of origin</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              aria-label="Default select example"
+              onChange={(e) => setLocalGovernment(e.target.value)}
+            >
               <option value={""}>Open this select menu</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -112,7 +123,10 @@ const FillForm: React.FC = () => {
         <Col xs={12} md={6}>
           <Form.Group controlId="formGridState">
             <Form.Label>Admission mode</Form.Label>
-            <Form.Select defaultValue="Choose...">
+            <Form.Select
+              defaultValue="Choose..."
+              onChange={(e) => setAdmissionMode(e.target.value)}
+            >
               <option value={""}>Choose...</option>
               <option value={"UTME"}>UTME</option>
               <option value={"direct_entry"}>Direct entry</option>
@@ -122,7 +136,10 @@ const FillForm: React.FC = () => {
         <Col xs={12} md={6}>
           <Form.Group controlId="formGridState">
             <Form.Label>Admission type</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              aria-label="Default select example"
+              onChange={(e) => setAdmissionType(e.target.value)}
+            >
               <option value={""}>Choose...</option>
               <option value="Regular">Regular</option>
               <option value="CEP">CEP</option>
@@ -130,14 +147,51 @@ const FillForm: React.FC = () => {
           </Form.Group>
         </Col>
       </Row>
+
       <Form.Group controlId="formGridState">
         <Form.Label>Status</Form.Label>
-        <Form.Select defaultValue="Choose...">
+        <Form.Select
+          defaultValue="Choose..."
+          onChange={(e) => setStatus(e.target.value)}
+        >
           <option>Choose...</option>
           <option value={"Current"}>Current</option>
           <option value={"Graduate"}>Graduate</option>
         </Form.Select>
       </Form.Group>
+      {status === "Current" && (
+        <Form.Group controlId="formGridState">
+          <Form.Label>Select your year</Form.Label>
+          <Form.Select
+            defaultValue="Select the year"
+            onChange={(e) => setYear(e.target.value)}
+          >
+            <option value={""}>Choose...</option>
+            <option value={"yearone"}>1st year</option>
+            <option value={"yeartwo"}>2nd year</option>
+            <option value={"yearthird"}>3rd year</option>
+            <option value={"yearfourth"}>4th year</option>
+            <option value={"yearfifth"}>5th year</option>
+            <option value={"yearsixth"}>6th year</option>
+          </Form.Select>
+        </Form.Group>
+      )}
+      {status === "Graduate" && (
+        <Form.Group controlId="formGridState">
+          <Form.Label>Select the year of graduation</Form.Label>
+          <Form.Select
+            defaultValue="Select the  year"
+            onChange={(e) => setYear(e.target.value)}
+          >
+            <option value={""}>Choose...</option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+      )}
 
       <div className="d-grid gap-2 mt-3 fillFormButton">
         <Button

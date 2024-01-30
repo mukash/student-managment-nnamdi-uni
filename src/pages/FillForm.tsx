@@ -3,13 +3,13 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import useRegister from "../hooks/useRegister";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Row from "react-bootstrap/Row";
 import Header from "../components/Header";
 import { IREGISTERUSER, NigerianStates } from "../shared/commonUtils";
 
 const FillForm: React.FC = () => {
-  const { loading, registerStudentApi } = useRegister();
+  const { registerStudentApi } = useRegister();
   const [registrationNo, setRegistrationNo] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [middleName, setMiddleName] = useState<string>("");

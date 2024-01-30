@@ -3,7 +3,6 @@ import Table from "react-bootstrap/Table";
 import Header from "../components/Header";
 
 import useGetStudents from "../hooks/useGetStudents";
-import { Pagination } from "react-bootstrap";
 import SearchBar from "../shared/SearchBar";
 import { ISTUDENTS } from "../shared/commonUtils";
 import NoRecordsFound from "../shared/NoRecordsFound";

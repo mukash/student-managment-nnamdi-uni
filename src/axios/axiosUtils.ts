@@ -1,5 +1,7 @@
-import {AxiosRequestConfig} from 'axios';
-import {instance} from './axios';
+import { AxiosRequestConfig } from 'axios';
+import { instance } from './axios';
+import LocalStorageComponent from "../components/LocalStorageComponents";
+
 
 // TODO Should be fetched form the env file
 // for live uncomment in produxtion
@@ -13,9 +15,10 @@ export const httpGet = async (
   requestPath: string,
   config?: AxiosRequestConfig,
 ): Promise<any> => {
+  const token = LocalStorageComponent.getItemLocally("token");
   const axiosResponse = await instance.get(requestPath, {
     headers: {
-      Authorization: 'Bearer null',
+      Authorization: 'Bearer ' + token,
     },
     ...config,
   });
@@ -27,15 +30,15 @@ export const httpPost = async (
   data: any,
   config?: AxiosRequestConfig,
 ): Promise<any> => {
- 
-    const axiosResponse = await instance.post(requestPath, data, {
-      headers: {
-        Authorization: 'Bearer null',
-      },
-      ...config,
-    });
-    return axiosResponse.data;
-  
+  const token = LocalStorageComponent.getItemLocally("token");
+  const axiosResponse = await instance.post(requestPath, data, {
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+    ...config,
+  });
+  return axiosResponse.data;
+
 };
 
 export const httpPut = async (
@@ -43,9 +46,10 @@ export const httpPut = async (
   data: any,
   config?: AxiosRequestConfig,
 ): Promise<any> => {
+  const token = LocalStorageComponent.getItemLocally("token");
   const axiosResponse = await instance.put(requestPath, data, {
     headers: {
-      Authorization: 'Bearer null',
+      Authorization: 'Bearer ' + token,
     },
     ...config,
   });
@@ -56,9 +60,10 @@ export const httpDelete = async (
   requestPath: string,
   config?: AxiosRequestConfig,
 ): Promise<any> => {
+  const token = LocalStorageComponent.getItemLocally("token");
   const axiosResponse = await instance.delete(requestPath, {
     headers: {
-      Authorization: 'Bearer null',
+      Authorization: 'Bearer ' + token,
     },
     ...config,
   });

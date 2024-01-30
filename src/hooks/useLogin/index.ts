@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import React, { useState } from "react";
 import { IREGISTERUSER } from "../../shared/commonUtils";
 import { httpPost } from "../../axios/axiosUtils";
 import { toast } from "react-toastify";

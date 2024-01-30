@@ -2,6 +2,7 @@
 @import '../src//styles/FillForm.css';
 @import '../src//styles/SearchBarStyles.css';
 @import '../src//styles/NoRecordFound.css';
+@import '../src//styles/LoginPage.css';
 @import 'react-toastify/dist/ReactToastify.css';
 .App {
   text-align: center;

@@ -1,0 +1,76 @@
+/* LoginPage.css */
+.login-bg{
+   
+    /* background-image: url(path-to-your-image/university-background.jpg); */
+    background-image: url(https://unizik.edu.ng/wp-content/uploads/2019/10/nau-excellence.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-container {
+    z-index: 10000;
+    max-width: 500px;
+    margin:  auto;
+    padding: 26px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .login-button {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  }
+  /* LoginPage.css */
+/* Existing styles... */
+
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { ILOGINFACULTY } from "../../shared/commonUtils";
 import { httpPost } from "../../axios/axiosUtils";
 import { toast } from "react-toastify";

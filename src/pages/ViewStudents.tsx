@@ -3,12 +3,16 @@ import Table from "react-bootstrap/Table";
 import Header from "../components/Header";
 
 import useGetStudents from "../hooks/useGetStudents";
+import LocalStorageHelper from "../components/LocalStorageComponents";
 import SearchBar from "../shared/SearchBar";
 import { ISTUDENTS } from "../shared/commonUtils";
+import { useNavigate } from "react-router-dom";
 import NoRecordsFound from "../shared/NoRecordsFound";
 const ViewStudents: React.FC = () => {
   const { loading, students, getStudents } = useGetStudents();
   const [filterdData, setFilterdData] = useState<ISTUDENTS[]>([]);
+  const navigation = useNavigate();
+  const userToken = LocalStorageHelper.getItemLocally("token");
   const [search, setSearch] = useState<string>("");
   const handleSearchChange = (event: any) => {
     // Handle search input change if needed
@@ -32,7 +36,11 @@ const ViewStudents: React.FC = () => {
       setFilterdData(students);
     }
   }, [students]);
-
+  useEffect(() => {
+    if (null === userToken) {
+      navigation("/");
+    }
+  }, []);
   return (
     <div>
       {/* tod we will use this in futrte */}

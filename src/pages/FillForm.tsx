@@ -7,9 +7,10 @@ import { ToastContainer } from "react-toastify";
 import Row from "react-bootstrap/Row";
 import Header from "../components/Header";
 import { IREGISTERUSER, NigerianStates } from "../shared/commonUtils";
+import { Spinner } from "react-bootstrap";
 
 const FillForm: React.FC = () => {
-  const { registerStudentApi } = useRegister();
+  const { registerStudentApi, loading } = useRegister();
   const [registrationNo, setRegistrationNo] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [middleName, setMiddleName] = useState<string>("");
@@ -96,8 +97,12 @@ const FillForm: React.FC = () => {
               onChange={(e) => setState(e.target.value)}
             >
               <option value={""}>Please select states</option>
-              {NigerianStates.map((item) => {
-                return <option value={item}>{item}</option>;
+              {NigerianStates.map((item, index) => {
+                return (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                );
               })}
               {/* <option>Choose...</option> */}
               {/* <option>...</option> */}
@@ -196,10 +201,24 @@ const FillForm: React.FC = () => {
       <div className="d-grid gap-2 mt-3 fillFormButton">
         <Button
           variant="primary"
+          disabled={loading}
           // type="submit" size="lg"
           onClick={onPressSubmit}
         >
-          Submit
+          {!loading ? (
+            "Submit"
+          ) : (
+            <>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              {" Loading..."}
+            </>
+          )}
         </Button>
       </div>
     </Form>

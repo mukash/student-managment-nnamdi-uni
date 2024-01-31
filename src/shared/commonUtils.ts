@@ -8,21 +8,25 @@ export interface IREGISTERUSER {
   AdmissionMode: string;
   AdmissionType: string;
   Status: string;
-  Year:string;
+  Year: string;
 }
-export interface ISTUDENTS  {
-  Year: string
-  Status: string
-  State: string
-  MiddleName: string
-  LocalGovernment: string
-  datetime: number
-  RegistrationNo: string
-  StudentId: string
-  AdmissionType: string
-  AdmissionMode: string
-  LastName: string
-  Name: string
+export interface ILOGINFACULTY {
+  Email: string;
+  Password: string;
+}
+export interface ISTUDENTS {
+  Year: string;
+  Status: string;
+  State: string;
+  MiddleName: string;
+  LocalGovernment: string;
+  datetime: number;
+  RegistrationNo: string;
+  StudentId: string;
+  AdmissionType: string;
+  AdmissionMode: string;
+  LastName: string;
+  Name: string;
 }
 export const NigerianStates = [
   "Abia",

@@ -1,12 +1,19 @@
 // LoginPage.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import useLogin from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
+import { Button, Spinner } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
+  const navigation = useNavigate();
   const [passwordError, setPasswordError] = useState("");
+  const { loading, success, loginFacultyHandler } = useLogin();
 
   const validateEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,18 +46,19 @@ const LoginPage: React.FC = () => {
     validatePassword(newValue);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const isEmailValid = validateEmail(email);
     const isPasswordValid = validatePassword(password);
 
     if (isEmailValid && isPasswordValid) {
       // Add your login logic here, e.g., make an API call
-      console.log(
-        "Login clicked with email:",
-        email,
-        "and password:",
-        password
-      );
+      const res = await loginFacultyHandler({
+        Email: email,
+        Password: password,
+      });
+      if (res) {
+        navigation("/view-students");
+      }
     } else {
       console.log("Form validation failed");
     }
@@ -58,6 +66,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="login-bg">
+      <ToastContainer />
       <div className="login-container">
         <Header />
         <h2>Login</h2>
@@ -82,9 +91,26 @@ const LoginPage: React.FC = () => {
           />
           {passwordError && <p className="error-message">{passwordError}</p>}
 
-          <button type="button" onClick={handleLogin} className="login-button">
-            Login
-          </button>
+          {!loading ? (
+            <button
+              type="button"
+              onClick={handleLogin}
+              className="login-button"
+            >
+              Login
+            </button>
+          ) : (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              Loading...
+            </Button>
+          )}
         </form>
       </div>
     </div>

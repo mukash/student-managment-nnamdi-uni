@@ -27,10 +27,32 @@ const useLogin = () => {
       return false;
     }
   };
+  const signOut = async () => {
+      try {
+        setLoading(true);
+        await httpPost(
+          "/user/auth/signout",
+          {},
+        );
+        LocalStorageComponent.deleteAll();
+        setSuccess(true);
+        setLoading(false);
+        return true;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        console.log(error);
+      setLoading(false);
+      //@ts-ignore
+      toast.error(error?.response?.data?.message);
+      return false;
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  };
   return {
     loading,
     success,
     loginFacultyHandler,
+    signOut
   };
 };
 

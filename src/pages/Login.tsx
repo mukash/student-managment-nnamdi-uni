@@ -57,7 +57,8 @@ const LoginPage: React.FC = () => {
         Password: password,
       });
       if (res) {
-        navigation("/view-students");
+        // navigation("/view-students");
+        navigation("/regular");
       }
     } else {
       console.log("Form validation failed");

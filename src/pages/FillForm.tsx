@@ -62,7 +62,7 @@ const FillForm: React.FC = () => {
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="eg: Jhon"
+              placeholder="eg: John"
               onChange={(e) => setName(e.target.value)}
             />
           </Form.Group>
@@ -82,7 +82,7 @@ const FillForm: React.FC = () => {
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="eg: Jhons"
+              placeholder="eg: Johns"
               onChange={(e) => setLastName(e.target.value)}
             />
           </Form.Group>

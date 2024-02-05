@@ -84,31 +84,31 @@ export default function Regular() {
       <div className="row mr-0">
         <SideMenu />
         <div className="col-md-10 main-container fixed-container">
-          <div className="omni-content-wrapper">
+        <div className="omni-content-wrapper">
             <div className="trans-box">
               <div className="trans-box-left mb-4">
                 <div className="inner-left">
                   <div className="pending-left">1st Year Studens</div>
                 </div>
-                <div className="trans-price-left ">{yearCounts.yearone}</div>
+                <div className="trans-price-left ">{!yearCounts.yearone ? 0 :yearCounts.yearone}</div>
               </div>
               <div className="trans-box-left mb-4">
                 <div className="inner-left">
                   <div className="pending-left">2st Year Studens</div>
                 </div>
-                <div className="trans-price-left ">{yearCounts.yeartwo}</div>
+                <div className="trans-price-left ">{!yearCounts.yeartwo  ? 0 : yearCounts.yeartwo}</div>
               </div>
               <div className="trans-box-left mb-4">
                 <div className="inner-left">
                   <div className="pending-left">3rd Year Studens</div>
                 </div>
-                <div className="trans-price-left ">{yearCounts.yearthird}</div>
+                <div className="trans-price-left ">{!yearCounts.yearthird ? 0 : yearCounts.yearthird}</div>
               </div>
               <div className="trans-box-left mb-4">
                 <div className="inner-left">
                   <div className="pending-left">4th Year Studens</div>
                 </div>
-                <div className="trans-price-left ">{yearCounts.yearfourth}</div>
+                <div className="trans-price-left ">{!yearCounts.yearfourth  ? 0 : yearCounts.yearfourth }</div>
               </div>
             </div>
           </div>

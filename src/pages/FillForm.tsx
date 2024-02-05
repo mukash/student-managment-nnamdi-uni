@@ -82,7 +82,7 @@ const FillForm: React.FC = () => {
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="eg: Johns"
+              placeholder="eg: John"
               onChange={(e) => setLastName(e.target.value)}
             />
           </Form.Group>
@@ -112,7 +112,7 @@ const FillForm: React.FC = () => {
         <Col xs={12} md={6}>
           <Form.Group controlId="formGridState">
             <Form.Label>Local government of origin</Form.Label>
-            <Form.Select
+            {/* <Form.Select
               aria-label="Default select example"
               onChange={(e) => setLocalGovernment(e.target.value)}
             >
@@ -120,7 +120,12 @@ const FillForm: React.FC = () => {
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-            </Form.Select>
+            </Form.Select> */}
+            <Form.Control
+              type="text"
+              placeholder="Local government"
+              onChange={(e) => setLocalGovernment(e.target.value)}
+            />
           </Form.Group>
         </Col>
       </Row>
@@ -171,13 +176,14 @@ const FillForm: React.FC = () => {
             defaultValue="Select the year"
             onChange={(e) => setYear(e.target.value)}
           >
+            {/* Should be a constant */}
             <option value={""}>Choose...</option>
             <option value={"yearone"}>1st year</option>
             <option value={"yeartwo"}>2nd year</option>
             <option value={"yearthird"}>3rd year</option>
             <option value={"yearfourth"}>4th year</option>
-            <option value={"yearfifth"}>5th year</option>
-            <option value={"yearsixth"}>6th year</option>
+            {/* <option value={"yearfifth"}>5th year</option>
+            <option value={"yearsixth"}>6th year</option> */}
           </Form.Select>
         </Form.Group>
       )}

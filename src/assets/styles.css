@@ -151,6 +151,63 @@
   .omni-sidemenu{
     width: 200px;
   }
+  .trans-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.trans-box-left {
+  padding: 16px 26px;
+  background: #F1F2F6;
+  border-radius: 8px;
+  width: 48%;
+}
+.inner-left {
+  display: flex;
+  justify-content: space-between;
+}
+.pending-left {
+  font-size: 16px;
+  color: #1E1E1E;
+  font-weight: 500;
+}
+.trans-price-left {
+  color: #1E1E1E;
+  font-size: 38.33px;
+  font-style: normal;
+  font-weight: 700;
+}
+.view-student-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.student-wrapper {
+  width: 40%;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 4%);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.section-title {
+  color: #6b6565;
+}
+.section-title-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+.border-btm{
+  border-bottom: 1px solid #ddd;
+}
+.student-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
   @media screen and (max-width: 900px) {
     .sidemenu {
       display: none; /* Hide regular side menu on smaller screens */

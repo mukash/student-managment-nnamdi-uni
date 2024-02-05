@@ -4,6 +4,7 @@ import Regular from "../pages/Regular";
 import CEP from "../pages/CEP";
 import Diploma from "../pages/Diploma";
 import Gradulate from "../pages/Gradulate";
+import ViewStudents from "../pages/ViewStudents";
 const Page404 = lazy(() => import("../pages/Page404"));
 const FillForm = lazy(() => import("../pages/FillForm"));
 const Login = lazy(() => import("../pages/Login"));
@@ -19,7 +20,7 @@ const RoutesPage: React.FC = () => {
           <Route path="/cep" element={<CEP />} />
           <Route path="/diploma" element={<Diploma />} />
           <Route path="/graduates" element={<Gradulate />} />
-          {/* <Route path="/view-students" element={<ViewStudents />} /> */}
+          <Route path="/view-students" element={<ViewStudents />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>

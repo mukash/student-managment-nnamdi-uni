@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Nav, Image, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import {
-  Speedometer,
   PersonFill,
   Headset,
   BoxArrowRight,
-  EnvelopeFill,
+  CircleFill,
+  MortarboardFill
 } from "react-bootstrap-icons";
 // import { SideMenuLogoWhite } from "../constants/svg";
 import LocalStorageComponent from "../components/LocalStorageComponents";
@@ -54,7 +54,7 @@ const SideMenu = () => {
               : "sidemenu-item"
           }
         >
-          <Speedometer
+          <CircleFill
             color={
               splitLocation[1] === "regular" || hoverOnRegular
                 ? "#ffffff"
@@ -84,7 +84,7 @@ const SideMenu = () => {
               : "sidemenu-item"
           }
         >
-          <PersonFill
+          <CircleFill
             color={
               splitLocation[1] === "cep" || hoverOnCEP
                 ? "#ffffff"
@@ -114,7 +114,7 @@ const SideMenu = () => {
               : "sidemenu-item"
           }
         >
-          <Headset
+          <CircleFill
             color={
               splitLocation[1] === "diploma" ||
               hoverOnDiploama
@@ -146,7 +146,7 @@ const SideMenu = () => {
               : "sidemenu-item"
           }
         >
-          <EnvelopeFill
+          <CircleFill
             color={
               splitLocation[1] === "graduates" || hoverOnGraduates
                 ? "#ffffff"

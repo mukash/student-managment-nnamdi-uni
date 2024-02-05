@@ -2,8 +2,10 @@ import  { useState } from "react";
 import { ILOGINFACULTY } from "../../shared/commonUtils";
 import { httpPost } from "../../axios/axiosUtils";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import LocalStorageComponent from "../../components/LocalStorageComponents";
 const useLogin = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const loginFacultyHandler = async (data: ILOGINFACULTY) => {
@@ -30,11 +32,12 @@ const useLogin = () => {
   const signOut = async () => {
       try {
         setLoading(true);
-        await httpPost(
-          "/user/auth/signout",
-          {},
-        );
+        // await httpPost(
+        //   "/user/auth/signout",
+        //   {},
+        // );
         LocalStorageComponent.deleteAll();
+        navigate("/login");
         setSuccess(true);
         setLoading(false);
         return true;

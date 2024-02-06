@@ -208,7 +208,12 @@
   justify-content: space-between;
   padding: 10px;
 }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 950px) {
+    .student-wrapper {
+      width: 100%;
+    }
+  } 
+   @media screen and (max-width: 900px) {
     .sidemenu {
       display: none; /* Hide regular side menu on smaller screens */
     }
@@ -216,4 +221,9 @@
     .hamburger-icon {
       display: block; /* Show hamburger icon on smaller screens */
     }
+  }
+    @media screen and (max-width: 768px) {
+      .main-container {
+        padding: 30px;
+      }
   }

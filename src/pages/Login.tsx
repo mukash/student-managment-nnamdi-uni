@@ -1,5 +1,5 @@
 // LoginPage.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import useLogin from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const LoginPage: React.FC = () => {
   const [emailError, setEmailError] = useState("");
   const navigation = useNavigate();
   const [passwordError, setPasswordError] = useState("");
-  const { loading, success, loginFacultyHandler } = useLogin();
+  const { loading, loginFacultyHandler } = useLogin();
 
   const validateEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

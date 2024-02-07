@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { Nav, Image, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import {
-  PersonFill,
-  Headset,
   BoxArrowRight,
   CircleFill,
-  MortarboardFill
 } from "react-bootstrap-icons";
 // import { SideMenuLogoWhite } from "../constants/svg";
 import LocalStorageComponent from "../components/LocalStorageComponents";

@@ -3,13 +3,14 @@ import SideMenu from '../components/SideMenu'
 import useGetStudents from '../hooks/useGetStudents';
 import SearchBar from '../shared/SearchBar';
 import { ISTUDENTS } from '../shared/commonUtils';
-import StudentComponent from '../components/StudentComponent';
-
+import StudentInfoModal from '../components/modals/StudentInfoModal';
 export default function Regular() {
-  const { loading, students, getStudents } = useGetStudents();
+  const { students, getStudents } = useGetStudents();
   // Initialize state for counts
   const [yearCounts, setYearCounts] = useState<any>({});
   const [studenRaw, setStudentRaw] = useState<ISTUDENTS[]>([]);
+  const [modalShow, setModalShow] = React.useState(false);
+const [showNoStudent, setShowNoStudent] = useState(false)
   const [filterdData, setFilterdData] = useState<ISTUDENTS | undefined>({
     Year: "",
     Status: "",
@@ -29,6 +30,7 @@ export default function Regular() {
 
   useEffect(() => {
     getStudents();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Count occurrences
   useEffect(() => {
@@ -76,7 +78,14 @@ export default function Regular() {
         });
         return;
       }
-      setFilterdData(studenRaw.find(student => student.RegistrationNo === search));
+      let student = studenRaw.find(student => student.RegistrationNo === search);
+      if(student){
+        setModalShow(true)
+        setFilterdData(student);
+        setShowNoStudent(false)
+      }else{
+        setShowNoStudent(true);
+      }
     }
   };
   return (
@@ -94,7 +103,7 @@ export default function Regular() {
               </div>
               <div className="trans-box-left mb-4">
                 <div className="inner-left">
-                  <div className="pending-left">2st Year Studens</div>
+                  <div className="pending-left">2nd Year Studens</div>
                 </div>
                 <div className="trans-price-left ">{!yearCounts.yeartwo  ? 0 : yearCounts.yeartwo}</div>
               </div>
@@ -117,7 +126,16 @@ export default function Regular() {
             placeholder="Search by registration number..."
             onChange={handleSearchChange}
           />
-          {filterdData?.RegistrationNo?<StudentComponent student={filterdData} />:<p className='text-center mt-4'>No Student Found</p>}
+          {showNoStudent?<p className='text-center mt-4'>No Student Found</p>:<></>}
+          {/* {filterdData?.RegistrationNo?<StudentComponent student={filterdData} />:<p className='text-center mt-4'>No Student Found</p>} */}
+          {/* <Button variant="primary" onClick={() => setModalShow(true)}>
+                Launch vertically centered modal
+              </Button> */}
+              <StudentInfoModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    student={filterdData}
+                  />
         </div>
       </div>
     </div>

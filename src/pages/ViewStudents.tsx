@@ -30,6 +30,7 @@ const ViewStudents: React.FC = () => {
   };
   useEffect(() => {
     getStudents();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (students) {
@@ -40,6 +41,7 @@ const ViewStudents: React.FC = () => {
     if (null === userToken) {
       navigation("/");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

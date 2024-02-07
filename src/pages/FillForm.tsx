@@ -179,7 +179,7 @@ const FillForm: React.FC = () => {
             {/* Should be a constant */}
             <option value={""}>Choose...</option>
             <option value={"yearone"}>1st year</option>
-            <option value={"yeartwo"}>2nd year</option>
+            <option value={"yeartwo"}>2nd  year</option>
             <option value={"yearthird"}>3rd year</option>
             <option value={"yearfourth"}>4th year</option>
             {/* <option value={"yearfifth"}>5th year</option>
